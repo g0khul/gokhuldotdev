@@ -71,82 +71,89 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20">
-      <div className="max-w-screen-2xl mx-auto px-6 relative min-h-[400px]">
-        {/* Thank You View */}
-        <div
-          className={`max-w-xl mx-auto text-center transition-all duration-500 ${
-            showThankYou && !isTransitioning
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-4 pointer-events-none absolute inset-x-0'
-          }`}
-        >
-          <div className="bg-surface border border-default rounded-xl p-12">
-            <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
-            <p className="text-muted text-lg mb-6">
-              I've received your message and will get back to you as soon as possible.
-            </p>
-            <div className="mb-4">
-              <p className="text-sm text-muted mb-2">You can send another message in</p>
-              <p className="text-4xl font-mono font-bold text-accent">
-                {timeLeft ? formatTime(timeLeft) : '0:00'}
-              </p>
+      <div className="max-w-screen-2xl mx-auto px-6">
+        {/* Grid overlay - both views take same space */}
+        <div className="grid">
+          {/* Thank You View */}
+          <div
+            className={`col-start-1 row-start-1 flex items-center justify-center transition-all duration-500 ${
+              showThankYou && !isTransitioning
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none'
+            }`}
+          >
+            <div className="max-w-xl text-center">
+              <div className="bg-surface border border-default rounded-xl p-12">
+                <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
+                <p className="text-muted text-lg mb-6">
+                  I've received your message and will get back to you as soon as possible.
+                </p>
+                <div className="mb-4">
+                  <p className="text-sm text-muted mb-2">You can send another message in</p>
+                  <p className="text-4xl font-mono font-bold text-accent">
+                    {timeLeft ? formatTime(timeLeft) : '0:00'}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Form View */}
-        <div
-          className={`max-w-5xl mx-auto transition-all duration-500 ${
-            !showThankYou && !isTransitioning
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-4 pointer-events-none absolute inset-x-0'
-          }`}
-        >
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            {/* Left side - Text */}
-            <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Get in Touch</h2>
-              <p className="text-muted text-lg mb-6">
-                Open for opportunities.
-              </p>
-              <p className="text-muted">
-                Whether you're hiring, have a project idea, or want to build something together, let's talk.
-              </p>
-            </div>
+          {/* Form View */}
+          <div
+            className={`col-start-1 row-start-1 transition-all duration-500 ${
+              !showThankYou && !isTransitioning
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none'
+            }`}
+          >
+            <div className="max-w-5xl mx-auto">
+              <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                {/* Left side - Text */}
+                <div className="flex-1 text-center lg:text-left">
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">Get in Touch</h2>
+                  <p className="text-muted text-lg mb-6">
+                    Open for opportunities.
+                  </p>
+                  <p className="text-muted">
+                    Whether you're hiring, have a project idea, or want to build something together, let's talk.
+                  </p>
+                </div>
 
-            {/* Right side - Form */}
-            <div className="flex-1 w-full max-w-md">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                <Input
-                  label="Name"
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Your name"
-                  required
-                />
+                {/* Right side - Form */}
+                <div className="flex-1 w-full max-w-md">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <Input
+                      label="Name"
+                      id="name"
+                      name="name"
+                      type="text"
+                      placeholder="Your name"
+                      required
+                    />
 
-                <Input
-                  label="Email"
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  required
-                />
+                    <Input
+                      label="Email"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      required
+                    />
 
-                <Textarea
-                  label="Message"
-                  id="message"
-                  name="message"
-                  placeholder="Tell me about your project..."
-                  required
-                />
+                    <Textarea
+                      label="Message"
+                      id="message"
+                      name="message"
+                      placeholder="Tell me about your project..."
+                      required
+                    />
 
-                <Button type="submit" variant="primary">
-                  Send Message
-                </Button>
-              </form>
+                    <Button type="submit" variant="primary">
+                      Send Message
+                    </Button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
