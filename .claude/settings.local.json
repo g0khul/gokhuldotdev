@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(cat:*)",
+      "WebFetch(domain:dribbble.com)",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(npm uninstall:*)"
+    ]
+  }
+}
