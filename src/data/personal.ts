@@ -1,8 +1,8 @@
 export const personal = {
   name: 'Gokhul',
-  title: 'Full Stack Developer',
-  tagline: 'Building digital experiences that matter',
-  bio: 'I craft clean, efficient, and user-friendly web applications. Passionate about modern web technologies and creating seamless user experiences.',
+  title: 'Software Engineer',
+  tagline: 'I obsess with details and optimized for impact',
+  bio: 'I write modular, reusable, and clean code with speed and cost optimization in mind.',
   email: 'hello@gokhul.dev',
-  location: 'India',
+  location: 'Chennai',
 }

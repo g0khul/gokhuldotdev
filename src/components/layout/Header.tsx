@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { ThemeToggle } from '../ui/ThemeToggle'
-import { personal } from '../../data/personal'
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -8,6 +7,56 @@ const navLinks = [
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
+
+function Logo() {
+  return (
+    <svg
+      width="36"
+      height="36"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="group"
+    >
+      <defs>
+        <linearGradient id="mobius-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="var(--color-accent-dark)" />
+          <stop offset="50%" stopColor="var(--color-accent)" />
+          <stop offset="100%" stopColor="var(--color-accent-light)" />
+        </linearGradient>
+      </defs>
+      {/* Möbius strip - twisted infinity shape */}
+      <g className="animate-mobius" style={{ transformOrigin: 'center' }}>
+        {/* Back part of the strip */}
+        <path
+          d="M20 50 C20 35, 35 25, 50 35 C65 45, 80 35, 80 50 C80 65, 65 75, 50 65 C35 55, 20 65, 20 50"
+          stroke="var(--color-border)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          fill="none"
+        />
+        {/* Front part of the strip with gradient */}
+        <path
+          d="M20 50 C20 35, 35 25, 50 35 C65 45, 80 35, 80 50"
+          stroke="url(#mobius-gradient)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          fill="none"
+        />
+        <path
+          d="M80 50 C80 65, 65 75, 50 65 C35 55, 20 65, 20 50"
+          stroke="url(#mobius-gradient)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          fill="none"
+          strokeDasharray="80"
+          strokeDashoffset="0"
+          className="animate-mobius-flow"
+        />
+      </g>
+    </svg>
+  )
+}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -29,9 +78,9 @@ export function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-lg font-semibold text-primary hover:text-accent transition-colors">
-          {personal.name}
+      <nav className="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2">
+          <Logo />
         </a>
 
         <div className="flex items-center gap-8">

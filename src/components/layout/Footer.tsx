@@ -1,5 +1,4 @@
 import { social } from '../../data/social'
-import { personal } from '../../data/personal'
 
 const iconPaths: Record<string, React.ReactNode> = {
   github: (
@@ -31,11 +30,9 @@ const iconPaths: Record<string, React.ReactNode> = {
 }
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer className="border-t border-default">
-      <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="max-w-screen-2xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             {social.map((item) => (
@@ -65,7 +62,7 @@ export function Footer() {
           </div>
 
           <p className="text-sm text-muted">
-            &copy; {currentYear} {personal.name}. All rights reserved.
+            Made with coffee and code
           </p>
         </div>
       </div>

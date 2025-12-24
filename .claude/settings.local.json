@@ -9,7 +9,8 @@
       "WebFetch(domain:dribbble.com)",
       "WebSearch",
       "Bash(ls:*)",
-      "Bash(npm uninstall:*)"
+      "Bash(npm uninstall:*)",
+      "WebFetch(domain:www.instagram.com)"
     ]
   }
 }

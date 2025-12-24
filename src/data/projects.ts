@@ -4,7 +4,8 @@ export interface Project {
   tags: string[]
   github?: string
   live?: string
-  image?: string
+  image?: string          // Landscape image for desktop (1280x720 - 16:9)
+  imageMobile?: string    // Portrait image for mobile (720x1280 - 9:16)
 }
 
 export const projects: Project[] = [

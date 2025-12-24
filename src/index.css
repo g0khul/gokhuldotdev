@@ -166,3 +166,127 @@ body {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+
+/* Hide scrollbar */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Line clamp */
+@utility line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Wave animation for mascot */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg); /* Arm down */
+  }
+  /* Raise arm up fully */
+  5% {
+    transform: rotate(-140deg);
+  }
+  /* Wave while up */
+  10% {
+    transform: rotate(-120deg);
+  }
+  15% {
+    transform: rotate(-160deg);
+  }
+  20% {
+    transform: rotate(-120deg);
+  }
+  25% {
+    transform: rotate(-150deg);
+  }
+  /* Lower arm back down */
+  30% {
+    transform: rotate(-140deg);
+  }
+  35% {
+    transform: rotate(0deg); /* Arm down */
+  }
+  /* Rest of the time (35-100%) is pause with arm down */
+}
+
+.animate-wave {
+  animation: wave 5s ease-in-out infinite;
+}
+
+/* Tail wag animation */
+@keyframes tail-wag {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(12deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-tail-wag {
+  animation: tail-wag 2s ease-in-out infinite;
+}
+
+/* Cursor blink animation */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Möbius strip flow animation */
+@keyframes mobius-flow {
+  0% {
+    stroke-dashoffset: 160;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-mobius-flow {
+  animation: mobius-flow 3s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
