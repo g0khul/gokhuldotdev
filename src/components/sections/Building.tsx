@@ -9,7 +9,14 @@ export function Building() {
         <div className="bg-surface border border-default rounded-xl p-6 md:p-8">
           {/* Header */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <h3 className="text-2xl font-bold">{building.name}</h3>
+            <a
+              href={building.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl font-bold hover:text-accent transition-colors"
+            >
+              {building.name} ↗
+            </a>
             <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent">
               {building.status}
             </span>
@@ -21,8 +28,8 @@ export function Building() {
           {/* Highlights */}
           <ul className="space-y-2 mb-6">
             {building.highlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-2 text-muted">
-                <span className="text-accent mt-1">•</span>
+              <li key={index} className="flex items-center gap-2 text-muted">
+                <span className="text-accent">•</span>
                 <span>{highlight}</span>
               </li>
             ))}

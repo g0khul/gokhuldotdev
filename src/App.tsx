@@ -18,8 +18,8 @@ function App() {
         <About />
         <Timeline />
         <Building />
-        <DSA />
         <Projects />
+        <DSA />
         <Killed />
         <Contact />
       </main>
