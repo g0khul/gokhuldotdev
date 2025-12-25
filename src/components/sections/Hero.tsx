@@ -60,7 +60,7 @@ export function Hero() {
 
         <div className={`inline-grid grid-cols-2 gap-4 transition-opacity duration-500 delay-200 ${isComplete ? 'opacity-100' : 'opacity-0'}`}>
           <Button variant="primary" className="w-full">
-            <a href="#about">Know more about me</a>
+            <a href="#about">Know more</a>
           </Button>
           <Button variant="outline" className="w-full">
             <a href="#contact">Get in Touch</a>

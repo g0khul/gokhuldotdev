@@ -1,5 +1,5 @@
 import { personal } from '../../data/personal'
-import { skills } from '../../data/skills'
+import { skillCategories } from '../../data/skills'
 
 export function About() {
   const aboutMe = `Hey there! I'm ${personal.name}, a ${personal.title} based in ${personal.location}. ${personal.bio} When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing what I've learned with the community.`
@@ -21,14 +21,21 @@ export function About() {
             {/* Tech Stack */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Tech I work with</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-3 py-1.5 text-sm rounded-full bg-surface border border-default text-muted"
-                  >
-                    {skill}
-                  </span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-6">
+                {skillCategories.map((category) => (
+                  <div key={category.name} className="min-h-[4.5rem]">
+                    <p className="text-sm text-muted mb-2">{category.name}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1.5 text-sm rounded-full bg-surface border border-default text-muted"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
