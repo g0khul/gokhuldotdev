@@ -1,160 +1,88 @@
-import { useState, useEffect, type FormEvent } from 'react'
-import { personal } from '../../data/personal'
-import { Button } from '../ui/Button'
-import { Input, Textarea } from '../ui/Input'
+import { social } from '../../data/social'
 
-const COOLDOWN_MS = 30 * 60 * 1000 // 30 minutes
-
-function formatTime(ms: number) {
-  const totalSeconds = Math.floor(ms / 1000)
-  const minutes = Math.floor(totalSeconds / 60)
-  const seconds = totalSeconds % 60
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`
+const iconPaths: Record<string, React.ReactNode> = {
+  github: (
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+  ),
+  linkedin: (
+    <>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </>
+  ),
+  twitter: (
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+  ),
+  email: (
+    <>
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </>
+  ),
+  substack: (
+    <>
+      <path d="M4 4h16v2H4zM4 8h16v2H4zM4 12h16l-8 8z" />
+    </>
+  ),
+  signal: (
+    <>
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+      <circle cx="12" cy="12" r="4" />
+    </>
+  ),
 }
 
 export function Contact() {
-  const [timeLeft, setTimeLeft] = useState<number | null>(null)
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [showThankYou, setShowThankYou] = useState(false)
-
-  useEffect(() => {
-    const checkCooldown = () => {
-      const lastSubmit = localStorage.getItem('contact-submitted')
-      if (lastSubmit) {
-        const elapsed = Date.now() - parseInt(lastSubmit, 10)
-        if (elapsed < COOLDOWN_MS) {
-          setTimeLeft(COOLDOWN_MS - elapsed)
-          setShowThankYou(true)
-        } else {
-          if (showThankYou) {
-            setIsTransitioning(true)
-            setTimeout(() => {
-              setShowThankYou(false)
-              setTimeLeft(null)
-              localStorage.removeItem('contact-submitted')
-              setTimeout(() => setIsTransitioning(false), 50)
-            }, 500)
-          } else {
-            setTimeLeft(null)
-            localStorage.removeItem('contact-submitted')
-          }
-        }
-      }
-    }
-
-    checkCooldown()
-    const interval = setInterval(checkCooldown, 1000)
-    return () => clearInterval(interval)
-  }, [showThankYou])
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault()
-    const form = e.target as HTMLFormElement
-    const formData = new FormData(form)
-    const name = formData.get('name')
-    const email = formData.get('email')
-    const message = formData.get('message')
-
-    const subject = `Portfolio Contact from ${name}`
-    const body = `From: ${name}\nEmail: ${email}\n\n${message}`
-
-    window.location.href = `mailto:${personal.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    localStorage.setItem('contact-submitted', Date.now().toString())
-
-    setIsTransitioning(true)
-    setTimeout(() => {
-      setTimeLeft(COOLDOWN_MS)
-      setShowThankYou(true)
-      setTimeout(() => setIsTransitioning(false), 50)
-    }, 500)
-  }
+  // Filter out email from social links (we'll show it separately)
+  const socialLinks = social.filter((item) => item.icon !== 'email')
 
   return (
     <section id="contact" className="py-20">
       <div className="max-w-screen-2xl mx-auto px-6">
-        {/* Grid overlay - both views take same space */}
-        <div className="grid">
-          {/* Thank You View */}
-          <div
-            className={`col-start-1 row-start-1 flex items-center justify-center transition-all duration-500 ${
-              showThankYou && !isTransitioning
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4 pointer-events-none'
-            }`}
-          >
-            <div className="max-w-xl text-center">
-              <div className="bg-surface border border-default rounded-xl p-12">
-                <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
-                <p className="text-muted text-lg mb-6">
-                  I've received your message and will get back to you as soon as possible.
-                </p>
-                <div className="mb-4">
-                  <p className="text-sm text-muted mb-2">You can send another message in</p>
-                  <p className="text-4xl font-mono font-bold text-accent">
-                    {timeLeft ? formatTime(timeLeft) : '0:00'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">Get in Touch</h2>
+          <p className="text-muted text-lg mb-6">
+            Open for opportunities. Whether you're hiring, have a project idea, or want to build something together, let's talk.
+          </p>
 
-          {/* Form View */}
-          <div
-            className={`col-start-1 row-start-1 transition-all duration-500 ${
-              !showThankYou && !isTransitioning
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4 pointer-events-none'
-            }`}
-          >
-            <div className="max-w-5xl mx-auto">
-              <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                {/* Left side - Text */}
-                <div className="flex-1 text-center lg:text-left">
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-4">Get in Touch</h2>
-                  <p className="text-muted text-lg mb-6">
-                    Open for opportunities.
-                  </p>
-                  <p className="text-muted">
-                    Whether you're hiring, have a project idea, or want to build something together, let's talk.
-                  </p>
-                </div>
+          {/* Email */}
+          <p className="text-lg mb-8">
+            Say hello to{' '}
+            <a
+              href="mailto:hello@gokhul.dev"
+              className="text-accent hover:underline font-medium"
+            >
+              hello@gokhul.dev
+            </a>
+          </p>
 
-                {/* Right side - Form */}
-                <div className="flex-1 w-full max-w-md">
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                    <Input
-                      label="Name"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Your name"
-                      required
-                    />
-
-                    <Input
-                      label="Email"
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your@email.com"
-                      required
-                    />
-
-                    <Textarea
-                      label="Message"
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your project..."
-                      required
-                    />
-
-                    <Button type="submit" variant="primary">
-                      Send Message
-                    </Button>
-                  </form>
-                </div>
-              </div>
-            </div>
+          {/* Social Links */}
+          <div className="flex flex-wrap justify-center gap-4">
+            {socialLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-default text-muted hover:text-accent hover:border-accent transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {iconPaths[item.icon]}
+                </svg>
+                <span className="text-sm font-medium">{item.name}</span>
+              </a>
+            ))}
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ export function About() {
           {/* Right side - Avatar */}
           <div className="flex-shrink-0">
             <img
-              src="/avatar.svg"
+              src="/avatar.jpeg"
               alt={personal.name}
               className="w-64 h-64 lg:w-80 lg:h-80 rounded-full object-cover"
             />
