@@ -2,6 +2,8 @@ import { personal } from '../../data/personal'
 import { skills } from '../../data/skills'
 
 export function About() {
+  const aboutMe = `Hey there! I'm ${personal.name}, a ${personal.title} based in ${personal.location}. ${personal.bio} When I'm not coding, you'll find me exploring new technologies, contributing to open source, or sharing what I've learned with the community.`
+
   return (
     <section id="about" className="py-20">
       <div className="max-w-screen-2xl mx-auto px-6">
@@ -12,14 +14,7 @@ export function About() {
 
             <div className="space-y-4 text-muted mb-8">
               <p>
-                Hey there! I'm {personal.name}, a {personal.title} based in {personal.location}.
-              </p>
-              <p>
-                {personal.bio}
-              </p>
-              <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open source, or sharing what I've learned with the community.
+                {aboutMe}
               </p>
             </div>
 
