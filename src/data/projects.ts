@@ -1,3 +1,12 @@
+import ticTacToeMobile from '../assets/projects/tic-tac-toe/tic-tac-toe-mobile.png'
+import ticTacToeDesktop from '../assets/projects/tic-tac-toe/tic-tac-toe-desktop.png'
+import noteAppMobile from '../assets/projects/note-app/note-app-mobile.png'
+import noteAppDesktop from '../assets/projects/note-app/note-app-desktop.png'
+import evoteDesktop from '../assets/projects/evote/evote-desktop.png'
+import evoteMobile from '../assets/projects/evote/evote-mobile.png'
+import brailleTranslatorDesktop from '../assets/projects/braille-translator/braille-translator-desktop.png'
+import brailleTranslatorMobile from '../assets/projects/braille-translator/braille-translator-mobile.png'
+
 export interface Project {
   title: string
   description: string
@@ -15,6 +24,8 @@ export const projects: Project[] = [
     tags: ['React', 'JavaScript', 'CSS'],
     github: 'https://github.com/g0khul/tic-tac-toe',
     live: 'https://tic-tac-toe-henna-ten-77.vercel.app/',
+    image: ticTacToeDesktop,
+    imageMobile: ticTacToeMobile,
   },
   {
     title: 'Note App',
@@ -22,23 +33,23 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Tailwind', 'REST API'],
     github: 'https://github.com/g0khul/note-app',
     live: 'https://note-app-mu-indol.vercel.app/',
-  },
-  {
-    title: 'Subnet Manager',
-    description: 'Avalanche hackathon project — simplifies blockchain subnet creation and management.',
-    tags: ['Flask', 'React', 'Web3'],
-    github: 'https://github.com/g0khul/avalanche-subnet-launcher',
+    image: noteAppDesktop,
+    imageMobile: noteAppMobile,
   },
   {
     title: 'Braille Translator',
     description: 'Converts text to Braille and vice versa.',
     tags: ['Flask', 'Python', 'HTML/CSS'],
     github: 'https://github.com/g0khul/BrailleTranslator',
+    image: brailleTranslatorDesktop,
+    imageMobile: brailleTranslatorMobile,
   },
   {
     title: 'eVote System',
     description: 'Electronic voting system with secure ballot handling.',
     tags: ['Flask', 'Python', 'HTML/CSS'],
     github: 'https://github.com/g0khul/Evote',
+    image: evoteDesktop,
+    imageMobile: evoteMobile,
   },
 ]
