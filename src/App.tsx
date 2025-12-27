@@ -9,11 +9,13 @@ import { Projects } from './components/sections/Projects'
 import { Killed } from './components/sections/Killed'
 import { Contact } from './components/sections/Contact'
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
     <div className="min-h-screen bg-primary">
       <Analytics />
+      <SpeedInsights />
       <Header />
       <main>
         <Hero />
