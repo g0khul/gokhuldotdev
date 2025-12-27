@@ -221,32 +221,6 @@ body {
   animation: wave 5s ease-in-out infinite;
 }
 
-/* Tail wag animation */
-@keyframes tail-wag {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  10% {
-    transform: rotate(15deg);
-  }
-  20% {
-    transform: rotate(-10deg);
-  }
-  30% {
-    transform: rotate(12deg);
-  }
-  40% {
-    transform: rotate(-8deg);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-}
-
-.animate-tail-wag {
-  animation: tail-wag 2s ease-in-out infinite;
-}
-
 /* Cursor blink animation */
 @keyframes blink {
   0%, 50% {
@@ -273,22 +247,6 @@ body {
 
 .animate-mobius-flow {
   animation: mobius-flow 3s linear infinite;
-}
-
-/* Fade in animation */
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
 }
 
 /* Wiggle animation for skull */

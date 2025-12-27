@@ -27,8 +27,8 @@ export function Building() {
 
           {/* Highlights */}
           <ul className="space-y-2 mb-6">
-            {building.highlights.map((highlight, index) => (
-              <li key={index} className="flex items-center gap-2 text-muted">
+            {building.highlights.map((highlight) => (
+              <li key={highlight} className="flex items-center gap-2 text-muted">
                 <span className="text-accent">•</span>
                 <span>{highlight}</span>
               </li>

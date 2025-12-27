@@ -1,10 +1,6 @@
-import type { InputHTMLAttributes, TextareaHTMLAttributes } from 'react'
+import type { InputHTMLAttributes } from 'react'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string
-}
-
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string
 }
 
@@ -18,22 +14,6 @@ export function Input({ label, id, className = '', ...props }: InputProps) {
         {label}
       </label>
       <input id={id} className={`${inputClasses} ${className}`} {...props} />
-    </div>
-  )
-}
-
-export function Textarea({ label, id, className = '', ...props }: TextareaProps) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-sm font-medium">
-        {label}
-      </label>
-      <textarea
-        id={id}
-        className={`${inputClasses} resize-none ${className}`}
-        rows={5}
-        {...props}
-      />
     </div>
   )
 }

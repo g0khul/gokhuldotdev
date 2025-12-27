@@ -153,6 +153,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         clearTimeout(autoPlayTimer.current)
       }
     }
+    // Intentionally empty deps: only run on mount to initialize carousel position
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
