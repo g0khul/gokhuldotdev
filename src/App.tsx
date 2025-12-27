@@ -8,10 +8,12 @@ import { DSA } from './components/sections/DSA'
 import { Projects } from './components/sections/Projects'
 import { Killed } from './components/sections/Killed'
 import { Contact } from './components/sections/Contact'
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
     <div className="min-h-screen bg-primary">
+      <Analytics />
       <Header />
       <main>
         <Hero />
