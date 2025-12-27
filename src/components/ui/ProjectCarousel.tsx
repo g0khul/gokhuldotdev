@@ -13,7 +13,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const isAnimating = useRef(false)
-  const autoPlayTimer = useRef<NodeJS.Timeout | null>(null)
+  const autoPlayTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isPausedRef = useRef(false)
   const AUTO_PLAY_DELAY = 5000 // 5 seconds
 
