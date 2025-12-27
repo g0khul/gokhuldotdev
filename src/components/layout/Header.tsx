@@ -60,6 +60,7 @@ function Logo() {
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,6 +69,33 @@ export function Header() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Track active section with Intersection Observer
+  useEffect(() => {
+    const sectionIds = navLinks.map(link => link.href.replace('#', ''))
+    const observers: IntersectionObserver[] = []
+
+    sectionIds.forEach(id => {
+      const element = document.getElementById(id)
+      if (!element) return
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setActiveSection(id)
+            }
+          })
+        },
+        { rootMargin: '-50% 0px -50% 0px' }
+      )
+
+      observer.observe(element)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach(obs => obs.disconnect())
   }, [])
 
   return (
@@ -85,16 +113,23 @@ export function Header() {
 
         <div className="flex items-center gap-8">
           <ul className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-sm text-muted hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '')
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className={`text-sm transition-colors ${
+                      isActive
+                        ? 'text-accent font-medium'
+                        : 'text-muted hover:text-primary'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
           </ul>
 
           <ThemeToggle />
