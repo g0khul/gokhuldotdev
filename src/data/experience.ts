@@ -7,10 +7,16 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
+    company: 'Synkcode',
+    role: 'Software Development Engineer III',
+    duration: 'Feb 2026 - Present',
+    description: 'Grew from SDE I to SDE III in months, now owning larger features end-to-end and shaping product and dev-side requirements. Rebuilt an entire microservice module\'s UI from v1 to v2 single-handedly, and collaborated with AI teams by exposing APIs to surface codebase context. Full-stack work across Django and modern web technologies.',
+  },
+  {
     company: 'Galvanize Global Education',
     role: 'Software Development Engineer I',
-    duration: 'Nov 2023 - Present',
-    description: 'Building an assessment platform for 2K+ learners (GRE, SAT, TOEFL, IELTS). Owned ~50% of features, built IELTS module end-to-end (~20% enrollment increase), led PHP→Django migration (~40% cost reduction, ~60% fewer defects).',
+    duration: 'Nov 2023 - Jan 2026',
+    description: 'Built an assessment platform for 2K+ learners (GRE, SAT, TOEFL, IELTS). Owned ~50% of features, built IELTS module end-to-end (~20% enrollment increase), led PHP→Django migration (~40% cost reduction, ~60% fewer defects).',
   },
   {
     company: 'Self Employed',
