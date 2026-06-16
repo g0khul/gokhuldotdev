@@ -173,12 +173,11 @@ const now: Note = {
   icon: '◆',
   meta: (
     <>
-      {personal.title} · {personal.location} ·{' '}
-      <span className="text-violet">attention to detail</span>
+      {personal.title} · {personal.location}
     </>
   ),
   excerpt:
-    'Software engineer in Chennai writing modular, clean code with speed and cost in mind.',
+    'Software engineer based in Chennai writing modular, clean code with speed and cost in mind.',
   links: ['careerbytecode', 'writing', 'projects', 'killed', 'connect'],
   Body: () => (
     <>
