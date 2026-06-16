@@ -35,7 +35,7 @@ export function Sidebar() {
         <div className="flex shrink-0 items-center border-b border-line px-4 py-4">
           <span className="flex items-center gap-2 whitespace-nowrap text-[13px] font-semibold tracking-[0.01em]">
             <span className="h-1.5 w-1.5 rounded-full bg-violet animate-pulse-dot" />
-            gokhul.dev
+            gokhul
           </span>
         </div>
 

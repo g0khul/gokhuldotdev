@@ -2,8 +2,6 @@ import ticTacToeMobile from "../assets/projects/tic-tac-toe/tic-tac-toe-mobile.p
 import ticTacToeDesktop from "../assets/projects/tic-tac-toe/tic-tac-toe-desktop.png";
 import noteAppMobile from "../assets/projects/note-app/note-app-mobile.png";
 import noteAppDesktop from "../assets/projects/note-app/note-app-desktop.png";
-import evoteDesktop from "../assets/projects/evote/evote-desktop.png";
-import evoteMobile from "../assets/projects/evote/evote-mobile.png";
 import brailleTranslatorDesktop from "../assets/projects/braille-translator/braille-translator-desktop.png";
 import brailleTranslatorMobile from "../assets/projects/braille-translator/braille-translator-mobile.png";
 import investmentCalculatorDesktop from "../assets/projects/investment-calculator/investment-calculator-desktop.png";
@@ -55,13 +53,5 @@ export const projects: Project[] = [
     github: "https://github.com/g0khul/BrailleTranslator",
     image: brailleTranslatorDesktop,
     imageMobile: brailleTranslatorMobile,
-  },
-  {
-    title: "eVote System",
-    description: "Electronic voting system with secure ballot handling.",
-    tags: ["Flask", "Python", "HTML/CSS"],
-    github: "https://github.com/g0khul/Evote",
-    image: evoteDesktop,
-    imageMobile: evoteMobile,
   },
 ];

@@ -8,7 +8,7 @@ export const personal = {
 
   /** freelance / hiring funnel */
   available: true,
-  availability: 'open to select freelance & roles',
+  availability: 'open to work',
 
   /** drop the PDF at /public/gokhul-resume.pdf to enable the download link */
   resumeUrl: '/gokhul-resume.pdf',

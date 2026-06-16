@@ -85,7 +85,7 @@ export function NoteView() {
         </button>
 
         <span className="ml-1 font-mono text-xs text-muted" aria-live="polite">
-          <span className="text-dim">workspace</span>
+          <span className="text-dim">me</span>
           <span className="mx-2 text-dim">/</span>
           <span className="text-fg">{note ? note.title : 'not found'}</span>
         </span>
@@ -124,12 +124,12 @@ export function NoteView() {
           <div className="animate-note-in mx-auto max-w-[660px] px-5 md:px-8">
             <div className="font-mono text-xs uppercase tracking-[0.16em] text-dim">404</div>
             <h1 className="mt-2 text-[28px] font-bold leading-tight tracking-[-0.01em]">
-              this note doesn't exist yet
+              wrong route, or i just haven't built it yet
             </h1>
             <p className="prose-note mt-4">
-              You followed a link to{' '}
-              <code className="font-mono text-fg">#{activeId || '—'}</code>, but there's no such note
-              in this workspace. Maybe it's still in my head.
+              Nothing lives at{' '}
+              <code className="font-mono text-fg">#{activeId || '?'}</code>. Either the link's off,
+              or it's still an idea in my head. Both happen.
             </p>
             <button
               onClick={() => navigate('now')}
