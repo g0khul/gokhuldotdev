@@ -5,19 +5,58 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gokhul</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Gokhul — software engineer who figures things out</title>
+  <meta name="description"
+    content="The workspace of Gokhul — a software engineer who figures things out. Truth over hype, work over noise. Backend, platform, and product engineering." />
+  <meta name="author" content="Gokhul" />
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gokhul — software engineer who figures things out" />
+  <meta property="og:description" content="Truth over hype, work over noise. An explorable workspace of what I'm building, writing, and shipping." />
+  <meta property="og:url" content="https://gokhul.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@g0khul" />
+
+  <style>
+    html, body { background: #000; }
+    html.light, html.light body { background: #fff; }
+  </style>
   <script>
-    // Set theme before page loads to prevent flash
+    // set theme before paint to prevent flash; respect OS preference on first visit
     (function () {
-      const stored = localStorage.getItem('theme');
-      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
+      try {
+        var stored = localStorage.getItem('ws:theme');
+        var light = stored ? stored === 'light'
+          : window.matchMedia('(prefers-color-scheme: light)').matches;
+        if (light) document.documentElement.classList.add('light');
+      } catch (e) {}
     })();
   </script>
+
+  <!-- structured data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gokhul",
+    "jobTitle": "Software Engineer",
+    "url": "https://gokhul.dev",
+    "email": "mailto:hello@gokhul.dev",
+    "sameAs": [
+      "https://github.com/g0khul",
+      "https://www.linkedin.com/in/g0khul/",
+      "https://x.com/g0khul",
+      "https://substack.com/@gokhul"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
