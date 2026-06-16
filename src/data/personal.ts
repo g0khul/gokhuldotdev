@@ -10,6 +10,6 @@ export const personal = {
   available: true,
   availability: 'open to work',
 
-  /** drop the PDF at /public/gokhul-resume.pdf to enable the download link */
-  resumeUrl: '/gokhul-resume.pdf',
+  /** drop the PDF at /public/gokhul_resume.pdf to enable the download link */
+  resumeUrl: '/gokhul_resume.pdf',
 }
