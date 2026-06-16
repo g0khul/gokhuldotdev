@@ -109,7 +109,10 @@ export function NoteView() {
       </div>
 
       {/* scroll region */}
-      <main ref={scrollRef} className="min-h-0 flex-1 overflow-y-auto py-12 md:py-14">
+      <main
+        ref={scrollRef}
+        className="min-h-0 flex-1 overflow-y-auto pt-12 pb-[calc(5rem+env(safe-area-inset-bottom))] md:py-14"
+      >
         {note ? (
           <article key={activeId} className="animate-note-in mx-auto max-w-[660px] px-5 md:px-8">
             <h1 className="text-[28px] font-bold leading-tight tracking-[-0.01em] md:text-[30px]">

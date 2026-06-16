@@ -25,7 +25,7 @@ export function WorkspaceShell() {
     <WorkspaceContext.Provider value={ctx}>
       <div className="grain">
         <div
-          className="grid h-screen bg-bg text-fg"
+          className="grid h-dvh bg-bg text-fg"
           style={{
             gridTemplateColumns,
             gridTemplateRows: 'minmax(0,1fr)',
