@@ -398,7 +398,15 @@ const connect: Note = {
           .filter((s) => s.icon !== 'email')
           .map((s) => (
             <Row key={s.name} label={s.name.toLowerCase()}>
-              <Ext href={s.url}>{s.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</Ext>
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noreferrer"
+                title={s.url}
+                className="block max-w-full truncate font-mono text-[13px] text-muted underline decoration-line2 underline-offset-[3px] transition-colors hover:text-fg hover:decoration-violet"
+              >
+                {s.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+              </a>
             </Row>
           ))}
       </div>
