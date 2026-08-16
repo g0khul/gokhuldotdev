@@ -14,7 +14,7 @@ export const building: BuildingProject[] = [
     name: 'CareerByteCode',
     url: 'https://careerbytecode.com',
     role: 'Backend & Platform Engineer',
-    status: 'Live',
+    status: 'Discontinued',
     description:
       'I built and run the backend, taking it from zero to one solo. API design, database schemas, deployment pipelines, and the infrastructure underneath it all.',
     highlights: [

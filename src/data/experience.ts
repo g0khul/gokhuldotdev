@@ -8,9 +8,9 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     company: 'Synkcode',
-    role: 'Software Development Engineer III',
+    role: 'Python Developer',
     duration: 'Feb 2026 - Present',
-    description: 'Grew from SDE I to SDE III in months, now owning larger features end-to-end and shaping product and dev-side requirements. Rebuilt an entire microservice module\'s UI from v1 to v2 single-handedly, and collaborated with AI teams by exposing APIs to surface codebase context. Full-stack work across Django and modern web technologies.',
+    description: 'Develop and maintain backend services across 6+ interconnected microservices using Django, Celery, and PostgreSQL for a customs compliance platform handling 500+ daily transactions. Work on feature development, bug fixes, system integrations, asynchronous event processing, and authentication, with no production incidents. Own improvements across backend infrastructure and API design while working closely with the frontend team to deliver complete user workflows.',
   },
   {
     company: 'Galvanize Global Education',
