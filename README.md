@@ -1,73 +1,111 @@
-# React + TypeScript + Vite
+# Gokhul.dev My Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, Obsidian inspired personal website and knowledge management workspace built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Gokhul.dev is a personal portfolio and digital workspace that combines the power of modern web technologies with the intuitive, graph based note taking experience inspired by [Obsidian](https://obsidian.md). It serves as both a showcase of work and a functional knowledge management system for exploring ideas, projects, and connections.
 
-## React Compiler
+**Design Philosophy:** This project draws inspiration from [Obsidian's](https://obsidian.md) elegant interface and powerful linking capabilities, reimagined as a web first experience with interactive graph visualizations, command palette navigation, and a responsive workspace interface.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- 📝 **Note-based workspace**: Create, organize, and view notes in a clean, distraction-free environment
+- 🕸️ **Graph visualization**: See connections between notes and explore relationships visually
+- ⌨️ **Command palette**: Quick navigation and actions using keyboard shortcuts (Obsidian-style)
+- 🎨 **Responsive design**: Seamless experience across desktop and mobile devices
+- 📊 **Analytics**: Integrated with Vercel Analytics for performance monitoring
+- ⚡ **Fast & optimized**: Built with Vite for instant HMR and lightning-fast builds
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React 19 + TypeScript
+- **Build tool:** Vite 8
+- **Styling:** Tailwind CSS 4
+- **Deployment:** Vercel
+- **Monitoring:** Vercel Analytics & Speed Insights
+- **Icons:** React Icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/gokhuldotdev.git
+cd gokhuldotdev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The application will open at `http://localhost:5173`
+
+## Available Commands
+
+```bash
+# Start development server with HMR
+npm run dev
+
+# Build for production
+npm run build
+
+# Run ESLint to check code quality
+npm run lint
+
+# Preview production build locally
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── workspace/          # Core workspace components
+│   ├── WorkspaceShell.tsx    # Main workspace container
+│   ├── Sidebar.tsx           # Navigation sidebar
+│   ├── NoteView.tsx          # Note rendering component
+│   ├── Graph.tsx             # Graph visualization
+│   ├── CommandPalette.tsx    # Command palette/search
+│   └── ...
+├── App.tsx            # Main application component
+└── main.tsx           # Entry point
+```
+
+## Performance
+
+The site includes:
+- **Vercel Analytics** for tracking user behavior
+- **Speed Insights** for monitoring Core Web Vitals
+- Optimized builds with TypeScript strict mode
+- Fast refresh during development with Vite
+
+## Deployment
+
+This project is deployed on [Vercel](https://vercel.com). Simply connect your GitHub repository to Vercel for automatic deployments on every push.
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Connect
+
+- Portfolio: [gokhul.dev](https://gokhul.dev)
+- GitHub: [@gokhul](https://github.com/g0khul)
+- X: [@gokhul](https://x.com/g0khul)
+
+---
+
+Built with ❤️ using [React](https://react.dev) + [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev), inspired by [Obsidian](https://obsidian.md)
