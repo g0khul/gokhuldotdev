@@ -2,7 +2,7 @@ import { useState, useEffect, type ReactNode } from 'react'
 import type { Note } from '../workspace/types'
 import { Wl, Ext } from '../lib/wikilink'
 import { personal } from '../data/personal'
-import { experience } from '../data/experience'
+import { experience, tenure } from '../data/experience'
 import { building, type BuildingProject } from '../data/building'
 import { projects } from '../data/projects'
 import { killed } from '../data/killed'
@@ -187,18 +187,42 @@ const now: Note = {
         on side projects, or writing up what I learn.
       </p>
       <p>
-        These days I'm a Software Development Engineer III at Synkcode, building features end to end.
-        On the side I'm shipping a few things of my own. More on those in{' '}
+        These days I'm a Project Manager at Synkcode, running delivery across four client projects
+        and three codebases, while still writing Django backend code myself. I'm looking for my next
+        backend role in Python and Django. On the side I'm shipping a few things of my own. More on
+        those in{' '}
         <Wl to="careerbytecode">what i'm building</Wl>, and I write up what I learn in{' '}
         <Wl to="writing">writing</Wl>.
       </p>
       <h2>the path</h2>
       <div>
         {experience.map((e) => (
-          <Row key={e.company + e.duration} label={e.duration}>
+          <Row key={e.company} label={tenure(e)}>
             <h3 className="text-[15px] font-medium text-fg">{e.company}</h3>
-            <div className="font-mono text-xs text-violet">{e.role}</div>
-            <p className="mt-1 text-[13.5px] text-muted">{e.description}</p>
+            {e.roles.length === 1 ? (
+              <>
+                <div className="font-mono text-xs text-violet">{e.roles[0].title}</div>
+                <p className="mt-1 text-[13.5px] text-muted">{e.roles[0].description}</p>
+              </>
+            ) : (
+              <ol className="mt-2 flex flex-col gap-3.5 border-l border-line2 pl-4">
+                {e.roles.map((r, i) => (
+                  <li key={r.title} className="relative">
+                    <span
+                      aria-hidden
+                      className={`absolute -left-[20.5px] top-[5px] h-2 w-2 rounded-full ${
+                        i === 0 ? 'bg-violet' : 'bg-line2'
+                      }`}
+                    />
+                    <div className="flex flex-wrap items-baseline gap-x-2">
+                      <span className="font-mono text-xs text-violet">{r.title}</span>
+                      <span className="font-mono text-[11px] text-dim">{r.duration}</span>
+                    </div>
+                    <p className="mt-1 text-[13.5px] text-muted">{r.description}</p>
+                  </li>
+                ))}
+              </ol>
+            )}
           </Row>
         ))}
       </div>
